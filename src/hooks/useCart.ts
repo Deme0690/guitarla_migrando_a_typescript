@@ -1,10 +1,11 @@
 import { useState, useEffect, useMemo } from "react"
 import { db } from "../data/db"
-
+import type { CartItem } from "../types/types"
 
 export const useCart = () => {
 
-  const initialCart = () => {
+  //El local storage le he difícil inferir el tipo de dato
+  const initialCart = () : CartItem [] => {
     const localStorageCart = localStorage.getItem('cart')
     return localStorageCart ? JSON.parse(localStorageCart) : []
   }
