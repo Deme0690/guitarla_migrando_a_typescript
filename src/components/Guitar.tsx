@@ -1,19 +1,16 @@
-//Este componente es el compornente hijo, su padre es App.jsx
-export default function Guitarra({guitarra, addToCart}) {
-    //console.log(guitarra)
-    const {id, name, image, description, price} = guitarra
+type Guitar={
+    id: number
+    name: string
+    image: string
+    description: string
+    price: number
+}
 
-    /*
-      La función no es necesaria ya que en onclic se le puede pasar
-      directamente la información:
-        onClick={()=> setCart ( (prevCart)=> [...prevCart, guitarra] )}
-    */
-   /*
-    const handleClick =  (id)=>{
-        //console.log(" Has hecho click", guitarra.id)
-        setCart([...cart, guitarra])
-    } 
-        */
+//Este componente es el compornente hijo, su padre es App.jsx
+// void : No retorna nada
+export default function Guitarra({guitarra, addToCart} : {guitarra: Guitar, addToCart : (item: Guitar) => void}) {
+    
+    const {name, image, description, price} = guitarra
 
     return (
         <div className="col-md-6 col-lg-4 my-4 row align-items-center">
