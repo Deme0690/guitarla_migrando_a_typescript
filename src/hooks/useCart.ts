@@ -41,12 +41,12 @@ export const useCart = () => {
 
   }
 
-  function removeFromCart(id) {
+  function removeFromCart(id: Guitar['id']) {
     //console.log("removiendo cart ... ", id)
     setCart(prevCart => prevCart.filter(guitarra => guitarra.id !== id))
   }
 
-  function increaseQuantity(id) {
+  function increaseQuantity(id : Guitar['id']) {
     //console.log("Incrementando", id)
     const updateCart = cart.map(item => {
       if (item.id === id && item.quantity < MAX_ITEMS) {
@@ -60,7 +60,7 @@ export const useCart = () => {
     setCart(updateCart)
   }
 
-  function decrementQuantity(id) {
+  function decrementQuantity(id: Guitar['id']) {
     //console.log("Decremento de ... ", id)
     const updateCart = cart.map(item => {
       if (item.id === id && item.quantity > MIN_ITEMS) {
@@ -80,7 +80,7 @@ export const useCart = () => {
 
   //State derivado
   const isEmpty = useMemo(() => cart.length === 0, [cart]) //Solo se llama cuando el carrito cambia
-  const cartTotal = useMemo(() => cart.reduce((total, item) => total + (item.quantity * item.price), 0))
+  const cartTotal = useMemo(() => cart.reduce((total, item) => total + (item.quantity * item.price), 0), [cart])
 
   return {
     data,
