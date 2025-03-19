@@ -1,23 +1,4 @@
-//Hay dos formas de declaración de tipos de objetos:
-  // * type e interface (ambas con correctas)
-
-/*
-type Guitar={
-    id: number
-    name: string
-    image: string
-    description: string
-    price: number
-}
-*/
-
-type Guitar={
-    id: number
-    name: string
-    image: string
-    description: string
-    price: number
-}
+import type { Guitar } from "../types/types"
 
 export const db : Guitar [] = [
     {
