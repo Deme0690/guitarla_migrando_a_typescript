@@ -6,9 +6,14 @@ type Guitar={
     price: number
 }
 
+type GuitarProps = {
+    guitarra: Guitar, 
+    addToCart : (item: Guitar) => void
+}
+
 //Este componente es el compornente hijo, su padre es App.jsx
 // void : No retorna nada
-export default function Guitarra({guitarra, addToCart} : {guitarra: Guitar, addToCart : (item: Guitar) => void}) {
+export default function Guitarra({guitarra, addToCart} : GuitarProps) {
     
     const {name, image, description, price} = guitarra
 
